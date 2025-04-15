@@ -2,6 +2,9 @@ package objects;
 
 import java.awt.*;
 
-public class GameObject {
-    public void render(Graphics g) {}
+public abstract class GameObject {
+
+    public abstract void render(Graphics2D g, int tileSize);
+
+    }
 }
