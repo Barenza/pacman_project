@@ -20,4 +20,13 @@ public class GameMap {
             {1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1},
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
     };
+
+    private final int tileSize;
+
+    private final Tile[][] tiles;
+
+    public GameMap(int tileSize) {
+        this.tileSize = tileSize;
+
+    }
 }
