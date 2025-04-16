@@ -20,6 +20,16 @@ public abstract class Creature extends GameObject {
     protected Color color;
 
 
+    protected int preferredDirectionX;
+
+    protected int preferredDirectionY;
+
+    protected int movingDirectionX;
+
+    protected int movingDirectionY;
+
+
+
     public Creature(Game game, double centerX, double centerY, double radius, double speed, Color color) {
         this.game = game;
         this.centerX = centerX;
@@ -27,6 +37,19 @@ public abstract class Creature extends GameObject {
         this.radius = radius;
         this.speed = speed;
         this.color = color;
+    }
+
+    private void tickMovingDirection() {
+        movingDirectionX = preferredDirectionX;
+        movingDirectionY = preferredDirectionY;
+    }
+
+    public void tick() {
+        tickMovingDirection();
+
+
+        centerX += movingDirectionX * speed;
+        centerY += movingDirectionY * speed;
     }
 
 

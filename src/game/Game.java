@@ -4,6 +4,8 @@ import game.objects.creatures.Player;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Game extends JFrame {
 
@@ -19,13 +21,29 @@ public class Game extends JFrame {
         display = new Display(this);
         map = new GameMap(40);
         player = new Player(this, 13.5, 10.5, 0.375, 0.07);
+        addKeyListener(player);
 
-        setSize(1080, 720);
+        setSize(1096, 760);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
 
+        startGameLoop();
+
+    }
+
+    private void startGameLoop() {
+        Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(() -> {
+            tick();
+            display.repaint();
+            }, 0L, 1000L / 60L, TimeUnit.MILLISECONDS);
+
+        }
+    }
+
+    private void tick() {
+        player.tick();
     }
 
 
