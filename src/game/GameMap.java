@@ -9,7 +9,6 @@ import game.objects.tiles.Tile;
 import java.awt.*;
 
 public class GameMap extends GameObject {
-
     private static final int[][] DEFAULT_MAP = {
             {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
             {1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1},
@@ -38,7 +37,11 @@ public class GameMap extends GameObject {
     public GameMap(int tileSize) {
         this.tileSize = tileSize;
         tiles = new Tile[DEFAULT_MAP.length][DEFAULT_MAP[0].length];
+        reset();
+    }
 
+
+    public void reset() {
         for (int y = 0; y < getHeight(); y++) {
             for (int x = 0; x < getWidth(); x++) {
                 tiles[y][x] = switch (DEFAULT_MAP[y][x]) {
@@ -59,6 +62,26 @@ public class GameMap extends GameObject {
         }
     }
 
+    public int dotCount() {
+        int sum = 0;
+        for (Tile[] row : tiles) {
+            for (Tile tile : row) {
+                if (tile instanceof Dot) {
+                    sum++;
+                }
+            }
+        }
+        return sum;
+    }
+
+    public boolean isFree(int x, int y) {
+        if (x < 0 || y < 0 || x >= getWidth() || y >= getHeight()) {
+            return false;
+        }
+
+        return !(tiles[y][x] instanceof Block);
+    }
+
     public int getWidth() {
         return tiles[0].length;
     }
@@ -67,8 +90,15 @@ public class GameMap extends GameObject {
         return tiles.length;
     }
 
-
     public int getTileSize() {
         return tileSize;
+    }
+
+    public Tile getTile(int x, int y) {
+        return tiles[y][x];
+    }
+
+    public void setTile(int x, int y, Tile tile) {
+        tiles[y][x] = tile;
     }
 }
