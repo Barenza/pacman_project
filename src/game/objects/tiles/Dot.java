@@ -1,4 +1,4 @@
-package objects.tiles;
+package game.objects.tiles;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;

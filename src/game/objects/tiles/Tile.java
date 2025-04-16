@@ -1,6 +1,6 @@
-package objects.tiles;
+package game.objects.tiles;
 
-import objects.GameObject;
+import game.objects.GameObject;
 
 public abstract class Tile extends GameObject {
 

@@ -1,8 +1,10 @@
-import objects.GameObject;
-import objects.tiles.Air;
-import objects.tiles.Block;
-import objects.tiles.Dot;
-import objects.tiles.Tile;
+package game;
+
+import game.objects.GameObject;
+import game.objects.tiles.Air;
+import game.objects.tiles.Block;
+import game.objects.tiles.Dot;
+import game.objects.tiles.Tile;
 
 import java.awt.*;
 
