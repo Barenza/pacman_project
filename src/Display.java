@@ -21,9 +21,7 @@ public class Display extends JPanel {
 
         game.render(g2);
 
-        g.setColor(Color.RED);
-        g.drawRect(50, 100, 200, 200);
-        g.drawOval(200, 200, 100, 100);
+
     }
 
 }
