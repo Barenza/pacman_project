@@ -40,7 +40,7 @@ public class Game extends JFrame {
             }, 0L, 1000L / 60L, TimeUnit.MILLISECONDS);
 
         }
-    }
+
 
     private void tick() {
         player.tick();
