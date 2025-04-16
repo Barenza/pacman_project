@@ -3,7 +3,6 @@ package game.objects.tiles;
 import java.awt.*;
 
 public class Block extends Tile {
-
     public Block(int x, int y) {
         super(x, y);
     }
