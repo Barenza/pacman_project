@@ -1,4 +1,4 @@
-package tiles;
+package objects.tiles;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;

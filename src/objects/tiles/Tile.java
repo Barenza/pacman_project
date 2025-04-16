@@ -1,4 +1,4 @@
-package tiles;
+package objects.tiles;
 
 import objects.GameObject;
 
